@@ -26,9 +26,9 @@ export function Footer() {
         <div>
           <h4 className="mb-3 text-sm font-bold text-primary">Contact</h4>
           <ul className="space-y-2 text-sm text-secondary-foreground/80">
-            <li className="flex items-center gap-2"><MapPin size={14} className="text-primary" /> Bamako, Mali</li>
-            <li className="flex items-center gap-2"><Phone size={14} className="text-primary" /> +223 70 00 00 00</li>
-            <li className="flex items-center gap-2"><Mail size={14} className="text-primary" /> contact@farafinafoot.com</li>
+            <li className="flex items-center gap-2"><MapPin size={14} className="text-primary" /><span>Bamako, Mali</span></li>
+            <li className="flex items-center gap-2"><Phone size={14} className="text-primary" /><span>+223 70 00 00 00</span></li>
+            <li className="flex items-center gap-2"><Mail size={14} className="text-primary" /><span>contact@farafinafoot.com</span></li>
           </ul>
         </div>
         <div>
