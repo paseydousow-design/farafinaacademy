@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/components/site/Layout";
-import heroImg from "@/assets/hero-football.jpg";
+import heroVideo from "@/assets/hero-video.mp4.asset.json";
+import tunnelImg from "@/assets/stadium-tunnel.jpg";
+import stadiumImg from "@/assets/stadium-view.jpg";
 import coachImg from "@/assets/coach-training.jpg";
 import teamImg from "@/assets/team-group.jpg";
-import { Trophy, Users, Target, ArrowRight, Quote, Star } from "lucide-react";
+import { Trophy, Users, Target, ArrowRight, Quote, Star, ChevronDown } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,35 +20,131 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+function StadiumEntry() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // progress from 0 (section top reaches viewport top) to 1 (section bottom reaches viewport bottom)
+      const total = rect.height - vh;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      setProgress(total > 0 ? scrolled / total : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  // Tunnel zoom: scale from 1 → 4, fade out at end
+  const tunnelScale = 1 + progress * 3.5;
+  const tunnelOpacity = progress < 0.6 ? 1 : Math.max(0, 1 - (progress - 0.6) / 0.3);
+  // Stadium reveal: appears in second half
+  const stadiumOpacity = Math.max(0, Math.min(1, (progress - 0.5) / 0.3));
+  const stadiumScale = 1.2 - Math.min(progress, 1) * 0.2;
+  // Text reveal at end
+  const textOpacity = Math.max(0, Math.min(1, (progress - 0.7) / 0.2));
+  const textY = (1 - textOpacity) * 40;
+
+  return (
+    <section ref={sectionRef} className="relative" style={{ height: "300vh" }}>
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
+        {/* Stadium background, revealed as we exit the tunnel */}
+        <div
+          className="absolute inset-0"
+          style={{
+            opacity: stadiumOpacity,
+            transform: `scale(${stadiumScale})`,
+            transition: "opacity 0.1s linear",
+          }}
+        >
+          <img src={stadiumImg} alt="Stade" width={1920} height={1080} className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/60" />
+        </div>
+
+        {/* Tunnel — zooms toward viewer */}
+        <div
+          className="absolute inset-0 will-change-transform"
+          style={{
+            transform: `scale(${tunnelScale})`,
+            opacity: tunnelOpacity,
+          }}
+        >
+          <img src={tunnelImg} alt="Entrée dans le stade" width={1920} height={1080} className="h-full w-full object-cover" />
+        </div>
+
+        {/* Final text reveal */}
+        <div
+          className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center"
+          style={{ opacity: textOpacity, transform: `translateY(${textY}px)` }}
+        >
+          <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Bienvenue dans l'arène</span>
+          <h2 className="mt-4 font-display text-5xl font-bold text-white md:text-7xl">
+            Le terrain <span className="text-primary">t'attend</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-white/80">
+            Chaque grand joueur a un jour franchi ce tunnel. Et toi, es-tu prêt à entrer ?
+          </p>
+        </div>
+
+        {/* Scroll hint */}
+        <div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60"
+          style={{ opacity: 1 - progress * 2 }}
+        >
+          <ChevronDown className="animate-bounce" size={28} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <Layout>
-      {/* HERO */}
-      <section className="relative isolate min-h-[92vh] overflow-hidden bg-secondary text-secondary-foreground">
-        <img src={heroImg} alt="Jeunes joueurs de football à l'entraînement" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent" />
+      {/* HERO — VIDEO */}
+      <section className="relative isolate min-h-[92vh] overflow-hidden bg-black text-secondary-foreground">
+        <video
+          src={heroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={tunnelImg}
+          className="absolute inset-0 h-full w-full object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
         <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-4 py-24">
           <div className="max-w-2xl animate-fade-up">
             <span className="inline-block rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary">
               Académie de football
             </span>
-            <h1 className="mt-6 font-display text-6xl font-bold leading-[0.95] md:text-8xl">
+            <h1 className="mt-6 font-display text-6xl font-bold leading-[0.95] text-white md:text-8xl">
               Former les <span className="text-primary">talents</span> de demain
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-secondary-foreground/80">
+            <p className="mt-6 max-w-xl text-lg text-white/80">
               Farafina Foot Academy révèle l'excellence du football africain. Discipline, technique, mental — nous formons les champions de demain.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-4 font-bold text-primary-foreground shadow-gold transition hover:scale-105">
                 S'inscrire maintenant <ArrowRight size={18} className="transition group-hover:translate-x-1" />
               </Link>
-              <Link to="/programs" className="inline-flex items-center gap-2 rounded-md border border-primary/40 px-7 py-4 font-bold text-secondary-foreground transition hover:bg-primary/10">
+              <Link to="/programs" className="inline-flex items-center gap-2 rounded-md border border-primary/40 px-7 py-4 font-bold text-white transition hover:bg-primary/10">
                 Voir les programmes
               </Link>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 hidden border-t border-primary/20 bg-secondary/90 backdrop-blur md:block">
+        <div className="absolute bottom-0 left-0 right-0 hidden border-t border-primary/20 bg-black/70 backdrop-blur md:block">
           <div className="mx-auto grid max-w-7xl grid-cols-4 divide-x divide-primary/20">
             {[
               { v: "500+", l: "Joueurs formés" },
@@ -55,12 +154,15 @@ function Index() {
             ].map((s) => (
               <div key={s.l} className="px-6 py-5 text-center">
                 <div className="font-display text-3xl font-bold text-primary">{s.v}</div>
-                <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">{s.l}</div>
+                <div className="text-xs uppercase tracking-wider text-white/60">{s.l}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* SCROLL — STADIUM ENTRY */}
+      <StadiumEntry />
 
       {/* PRESENTATION */}
       <section className="py-24">
