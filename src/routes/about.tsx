@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout, PageHero } from "@/components/site/Layout";
 import coachImg from "@/assets/coach-training.jpg";
+import coach1 from "@/assets/coach-1.jpg";
+import coach2 from "@/assets/coach-2.jpg";
+import coach3 from "@/assets/coach-3.jpg";
+import teamBoys from "@/assets/team-boys.jpg";
+import teamGirls from "@/assets/team-girls.jpg";
 import { Shield, Heart, Star } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
@@ -28,10 +33,12 @@ function AboutPage() {
             <h2 className="mt-3 font-display text-4xl font-bold">12 ans à révéler des talents</h2>
             <p className="mt-5 text-muted-foreground">
               Créée en 2013 par d'anciens joueurs et éducateurs passionnés, Farafina Foot Academy est née d'une conviction :
-              l'Afrique regorge de talents qui méritent un cadre professionnel pour s'épanouir.
+              l'Afrique regorge de talents qui méritent un cadre professionnel pour s'épanouir. Basée à Dakar, l'académie
+              s'entraîne au <strong className="text-foreground">Complexe sportif de l'ENA</strong>, un environnement
+              moderne propice à l'excellence.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Aujourd'hui, plus de 500 jeunes ont été formés chez nous, dont une trentaine évoluent désormais à un niveau professionnel
+              Aujourd'hui, plus de 500 jeunes Sénégalais et de la sous-région ont été formés chez nous, dont une trentaine évoluent désormais à un niveau professionnel
               en Afrique et en Europe.
             </p>
           </div>
