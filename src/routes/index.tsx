@@ -229,9 +229,9 @@ function Index() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
-              { n: "Ibrahim K.", r: "Joueur U18", q: "L'académie m'a donné la rigueur et la technique pour passer pro. Une famille, un cadre, une vision." },
-              { n: "Aminata D.", r: "Mère d'élève", q: "Mon fils a grandi en confiance et en discipline. Les coachs sont remarquables d'humanité." },
-              { n: "Moussa T.", r: "Ancien joueur", q: "Aujourd'hui je joue en Europe. Tout a commencé ici, à Farafina. Merci coach." },
+              { n: "Ibrahima Sarr", r: "Joueur U18", q: "L'académie m'a donné la rigueur et la technique pour passer pro. Une famille, un cadre, une vision." },
+              { n: "Awa Ndoye", r: "Mère d'élève", q: "Mon fils a grandi en confiance et en discipline. Les coachs sont remarquables d'humanité." },
+              { n: "Moussa Sow", r: "Ancien joueur", q: "Aujourd'hui je joue en Europe. Tout a commencé ici, à Farafina. Merci coach." },
             ].map((t) => (
               <div key={t.n} className="rounded-lg border border-border bg-card p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-elegant">
                 <Quote className="text-primary" />
