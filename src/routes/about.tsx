@@ -98,9 +98,9 @@ function AboutPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
-              { n: "Sékou Diarra", r: "Directeur technique", b: "Ex-international, 20 ans d'expérience. Diplômé CAF A.", img: coach1 },
-              { n: "Fatou Cissé", r: "Coach U10–U13", b: "Spécialiste du développement de l'enfant et de l'éveil moteur.", img: coach2 },
-              { n: "Mamadou Konaté", r: "Coach U15–U20", b: "Diplômé UEFA A, ancien joueur professionnel en Ligue 1 sénégalaise.", img: coach3 },
+              { n: "Cheikh Ndiaye", r: "Directeur technique", b: "Ex-international sénégalais, 20 ans d'expérience. Diplômé CAF A.", img: coach1 },
+              { n: "Aïssatou Diop", r: "Coach U10–U13", b: "Spécialiste du développement de l'enfant et de l'éveil moteur.", img: coach2 },
+              { n: "Babacar Faye", r: "Coach U15–U20", b: "Diplômé UEFA A, ancien joueur professionnel en Ligue 1 sénégalaise.", img: coach3 },
             ].map((c) => (
               <div key={c.n} className="group overflow-hidden rounded-lg bg-card text-card-foreground transition hover:-translate-y-1 hover:shadow-elegant">
                 <div className="aspect-square overflow-hidden bg-muted">
