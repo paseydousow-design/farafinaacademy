@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout, PageHero } from "@/components/site/Layout";
 import coachImg from "@/assets/coach-training.jpg";
+import coach1 from "@/assets/coach-1.jpg";
+import coach2 from "@/assets/coach-2.jpg";
+import coach3 from "@/assets/coach-3.jpg";
+import teamBoys from "@/assets/team-boys.jpg";
+import teamGirls from "@/assets/team-girls.jpg";
 import { Shield, Heart, Star } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
@@ -28,10 +33,12 @@ function AboutPage() {
             <h2 className="mt-3 font-display text-4xl font-bold">12 ans à révéler des talents</h2>
             <p className="mt-5 text-muted-foreground">
               Créée en 2013 par d'anciens joueurs et éducateurs passionnés, Farafina Foot Academy est née d'une conviction :
-              l'Afrique regorge de talents qui méritent un cadre professionnel pour s'épanouir.
+              l'Afrique regorge de talents qui méritent un cadre professionnel pour s'épanouir. Basée à Dakar, l'académie
+              s'entraîne au <strong className="text-foreground">Complexe sportif de l'ENA</strong>, un environnement
+              moderne propice à l'excellence.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Aujourd'hui, plus de 500 jeunes ont été formés chez nous, dont une trentaine évoluent désormais à un niveau professionnel
+              Aujourd'hui, plus de 500 jeunes Sénégalais et de la sous-région ont été formés chez nous, dont une trentaine évoluent désormais à un niveau professionnel
               en Afrique et en Europe.
             </p>
           </div>
@@ -91,15 +98,47 @@ function AboutPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
-              { n: "Sékou Diarra", r: "Directeur technique", b: "Ex-international, 20 ans d'expérience" },
-              { n: "Fatou Cissé", r: "Coach U10–U13", b: "Spécialiste développement enfant" },
-              { n: "Mamadou Konaté", r: "Coach U15–U20", b: "Diplômé UEFA A" },
+              { n: "Sékou Diarra", r: "Directeur technique", b: "Ex-international, 20 ans d'expérience. Diplômé CAF A.", img: coach1 },
+              { n: "Fatou Cissé", r: "Coach U10–U13", b: "Spécialiste du développement de l'enfant et de l'éveil moteur.", img: coach2 },
+              { n: "Mamadou Konaté", r: "Coach U15–U20", b: "Diplômé UEFA A, ancien joueur professionnel en Ligue 1 sénégalaise.", img: coach3 },
             ].map((c) => (
-              <div key={c.n} className="rounded-lg bg-card p-6 text-card-foreground">
-                <div className="aspect-square rounded-md bg-gold" />
-                <h3 className="mt-5 font-display text-xl font-bold">{c.n}</h3>
-                <div className="text-sm font-semibold text-primary">{c.r}</div>
-                <p className="mt-1 text-sm text-muted-foreground">{c.b}</p>
+              <div key={c.n} className="group overflow-hidden rounded-lg bg-card text-card-foreground transition hover:-translate-y-1 hover:shadow-elegant">
+                <div className="aspect-square overflow-hidden bg-muted">
+                  <img src={c.img} alt={`Portrait de ${c.n}`} width={768} height={768} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-bold">{c.n}</h3>
+                  <div className="text-sm font-semibold text-primary">{c.r}</div>
+                  <p className="mt-2 text-sm text-muted-foreground">{c.b}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">Nos équipes</span>
+            <h2 className="mt-3 font-display text-4xl font-bold">Les visages de l'académie</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              Filles et garçons, de l'éveil à l'élite : nos équipes s'entraînent chaque semaine au Complexe sportif de l'ENA à Dakar.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {[
+              { img: teamBoys, t: "Équipe masculine U13", d: "Une génération talentueuse en pleine progression, encadrée par notre staff technique." },
+              { img: teamGirls, t: "Équipe féminine", d: "Fierté de l'académie, nos joueuses portent haut les couleurs du football féminin sénégalais." },
+            ].map((t) => (
+              <div key={t.t} className="group overflow-hidden rounded-lg border border-border bg-card transition hover:border-primary hover:shadow-elegant">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={t.img} alt={t.t} width={1280} height={896} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-bold">{t.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{t.d}</p>
+                </div>
               </div>
             ))}
           </div>

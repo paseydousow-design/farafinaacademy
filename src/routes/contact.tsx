@@ -76,12 +76,12 @@ function ContactPage() {
 
           <div className="space-y-4 lg:col-span-2">
             <div className="rounded-lg border border-border bg-card p-6">
-              <div className="flex items-center gap-3"><MapPin className="text-primary" /><div><div className="font-bold">Adresse</div><div className="text-sm text-muted-foreground">Stade Modibo Keïta, Bamako, Mali</div></div></div>
+              <div className="flex items-center gap-3"><MapPin className="text-primary" /><div><div className="font-bold">Adresse</div><div className="text-sm text-muted-foreground">Complexe sportif de l'ENA, Dakar, Sénégal</div></div></div>
             </div>
             <div className="rounded-lg border border-border bg-card p-6">
-              <div className="flex items-center gap-3"><Phone className="text-primary" /><div><div className="font-bold">Téléphone</div><div className="text-sm text-muted-foreground">+223 70 00 00 00</div></div></div>
+              <div className="flex items-center gap-3"><Phone className="text-primary" /><div><div className="font-bold">Téléphone</div><div className="text-sm text-muted-foreground">+221 77 000 00 00</div></div></div>
             </div>
-            <a href="https://wa.me/22370000000" target="_blank" rel="noopener noreferrer" className="block rounded-lg border border-border bg-card p-6 transition hover:border-primary">
+            <a href="https://wa.me/221770000000" target="_blank" rel="noopener noreferrer" className="block rounded-lg border border-border bg-card p-6 transition hover:border-primary">
               <div className="flex items-center gap-3"><MessageCircle className="text-primary" /><div><div className="font-bold">WhatsApp</div><div className="text-sm text-muted-foreground">Discutez avec nous</div></div></div>
             </a>
             <div className="rounded-lg border border-border bg-card p-6">
@@ -94,7 +94,7 @@ function ContactPage() {
           <div className="overflow-hidden rounded-lg border border-border">
             <iframe
               title="Localisation"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-8.05%2C12.60%2C-7.95%2C12.70&layer=mapnik"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-17.48%2C14.71%2C-17.42%2C14.75&layer=mapnik"
               className="h-96 w-full"
               loading="lazy"
             />

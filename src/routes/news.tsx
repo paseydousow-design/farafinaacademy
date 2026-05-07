@@ -18,7 +18,7 @@ export const Route = createFileRoute("/news")({
 });
 
 const articles = [
-  { img: match, date: "12 Avril 2026", cat: "Tournoi", t: "Nos U18 finalistes du tournoi régional", e: "Une performance remarquable de notre équipe U18 lors du tournoi de Bamako face aux meilleures académies de la sous-région." },
+  { img: match, date: "12 Avril 2026", cat: "Tournoi", t: "Nos U18 finalistes du tournoi régional", e: "Une performance remarquable de notre équipe U18 lors du tournoi de Dakar face aux meilleures académies de la sous-région." },
   { img: team, date: "28 Mars 2026", cat: "Annonce", t: "Ouverture des inscriptions saison 2026", e: "Les portes de l'académie sont ouvertes : rejoignez-nous pour vivre une saison inoubliable au cœur du football." },
   { img: drills, date: "05 Mars 2026", cat: "Performance", t: "Trois jeunes signent dans des clubs européens", e: "Le travail paie : trois pépites de Farafina viennent de signer leur premier contrat professionnel à l'étranger." },
 ];
