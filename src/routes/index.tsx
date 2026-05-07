@@ -114,7 +114,7 @@ function Index() {
   return (
     <Layout>
       {/* HERO — VIDEO */}
-      <section className="relative isolate min-h-[92vh] overflow-hidden bg-black text-secondary-foreground">
+      <section className="relative isolate min-h-screen overflow-hidden bg-black text-secondary-foreground">
         <video
           src={heroVideo.url}
           autoPlay
@@ -122,47 +122,78 @@ function Index() {
           loop
           playsInline
           poster={tunnelImg}
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-4 py-24">
-          <div className="max-w-2xl animate-fade-up">
-            <span className="inline-block rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary">
-              Académie de football
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
+        <div className="absolute inset-0 bg-gold-radial opacity-40" />
+
+        {/* Vertical side label */}
+        <div className="absolute left-6 top-1/2 hidden -translate-y-1/2 -rotate-90 text-xs font-bold uppercase tracking-[0.5em] text-primary/70 lg:block">
+          Dakar — Sénégal · Est. 2013
+        </div>
+
+        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 py-24 lg:px-16">
+          <div className="max-w-3xl animate-fade-up">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary backdrop-blur">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+              Inscriptions ouvertes — Saison 2026
             </span>
-            <h1 className="mt-6 font-display text-6xl font-bold leading-[0.95] text-white md:text-8xl">
-              Former les <span className="text-primary">talents</span> de demain
+            <h1 className="mt-8 font-impact text-7xl font-bold leading-[0.85] text-white md:text-[10rem]">
+              Deviens <br />
+              <span className="text-gold-gradient">légendaire.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-white/80">
-              Farafina Foot Academy révèle l'excellence du football africain. Discipline, technique, mental — nous formons les champions de demain.
+            <p className="mt-8 max-w-xl text-lg text-white/80 md:text-xl">
+              À <strong className="text-primary">Farafina Foot Academy</strong>, nous formons les futures étoiles du football sénégalais. Discipline. Technique. Mental d'acier.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-4 font-bold text-primary-foreground shadow-gold transition hover:scale-105">
-                S'inscrire maintenant <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-8 py-4 font-bold uppercase tracking-wide text-primary-foreground shadow-gold-lg transition hover:scale-105">
+                Inscrire mon enfant <ArrowRight size={18} className="transition group-hover:translate-x-1" />
               </Link>
-              <Link to="/programs" className="inline-flex items-center gap-2 rounded-md border border-primary/40 px-7 py-4 font-bold text-white transition hover:bg-primary/10">
-                Voir les programmes
+              <Link to="/programs" className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 px-8 py-4 font-bold uppercase tracking-wide text-white backdrop-blur transition hover:border-primary hover:bg-primary/10">
+                Découvrir l'académie
               </Link>
             </div>
           </div>
+
+          <div className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 md:flex">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Scroll</span>
+            <ChevronDown size={20} className="animate-bounce" />
+          </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 hidden border-t border-primary/20 bg-black/70 backdrop-blur md:block">
-          <div className="mx-auto grid max-w-7xl grid-cols-4 divide-x divide-primary/20">
+
+        <div className="absolute bottom-0 left-0 right-0 border-t border-primary/30 bg-black/80 backdrop-blur">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 divide-primary/20 md:grid-cols-4 md:divide-x">
             {[
-              { v: "500+", l: "Joueurs formés" },
-              { v: "15", l: "Coachs experts" },
-              { v: "12", l: "Années d'expérience" },
-              { v: "30+", l: "Talents pros" },
+              { v: "500+", l: "Joueurs formés", icon: Users },
+              { v: "15", l: "Coachs experts", icon: ShieldCheck },
+              { v: "12", l: "Années d'excellence", icon: Award },
+              { v: "30+", l: "Talents pros", icon: Trophy },
             ].map((s) => (
-              <div key={s.l} className="px-6 py-5 text-center">
-                <div className="font-display text-3xl font-bold text-primary">{s.v}</div>
-                <div className="text-xs uppercase tracking-wider text-white/60">{s.l}</div>
+              <div key={s.l} className="flex items-center gap-3 px-6 py-4 md:py-5">
+                <s.icon className="text-primary" size={22} />
+                <div>
+                  <div className="font-impact text-2xl font-bold text-primary md:text-3xl">{s.v}</div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/60 md:text-xs">{s.l}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* GOLD TICKER */}
+      <div className="overflow-hidden border-y-2 border-black bg-primary py-4">
+        <div className="ticker-track flex w-max gap-12 whitespace-nowrap font-impact text-2xl font-bold text-black md:text-3xl">
+          {Array.from({ length: 2 }).map((_, j) => (
+            <div key={j} className="flex gap-12">
+              {["★ Excellence", "★ Discipline", "★ Talent", "★ Dakar — Sénégal", "★ Farafina Foot Academy", "★ U10 → U20", "★ Complexe de l'ENA", "★ Inscriptions ouvertes"].map((t, i) => (
+                <span key={i} className="flex items-center gap-12">{t}</span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* SCROLL — STADIUM ENTRY */}
       <StadiumEntry />
