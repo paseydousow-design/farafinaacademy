@@ -6,7 +6,10 @@ import tunnelImg from "@/assets/stadium-tunnel.jpg";
 import stadiumImg from "@/assets/stadium-view.jpg";
 import coachImg from "@/assets/coach-training.jpg";
 import teamImg from "@/assets/team-group.jpg";
-import { Trophy, Users, Target, ArrowRight, Quote, Star, ChevronDown } from "lucide-react";
+import playerImg from "@/assets/player-dribble.jpg";
+import matchImg from "@/assets/match-action.jpg";
+import drillsImg from "@/assets/training-drills.jpg";
+import { Trophy, Users, Target, ArrowRight, Quote, Star, ChevronDown, Zap, Award, Flame, ShieldCheck, Calendar, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
