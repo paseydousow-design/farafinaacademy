@@ -296,7 +296,6 @@ function Index() {
           </div>
         </div>
       </section>
-      </section>
 
       {/* GOLD TICKER */}
       <div className="overflow-hidden border-y-2 border-black bg-primary py-4">
