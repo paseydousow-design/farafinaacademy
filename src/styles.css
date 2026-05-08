@@ -118,7 +118,9 @@
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
   .shadow-deep { box-shadow: var(--shadow-deep); }
   .bg-pitch-radial { background: var(--gradient-pitch-radial); }
+  .bg-ember-radial { background: var(--gradient-ember-radial); }
   .text-pitch { color: var(--pitch); }
+  .text-ember { color: var(--ember); }
   .bg-pitch { background-color: var(--pitch); }
   .border-pitch { border-color: var(--pitch); }
   .text-stroke {
