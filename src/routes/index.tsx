@@ -160,64 +160,142 @@ function Index() {
           loop
           playsInline
           poster={tunnelImg}
-          className="absolute inset-0 h-full w-full object-cover opacity-70"
+          className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
-        <div className="absolute inset-0 bg-gold-radial opacity-40" />
+        {/* Layered overlays for depth & legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/40" />
+        <div className="absolute inset-0 bg-pitch-radial opacity-70" />
+        <div className="absolute inset-0 bg-gold-radial opacity-25" />
+        {/* Subtle grid texture */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
 
-        {/* Vertical side label */}
-        <div className="absolute left-6 top-1/2 hidden -translate-y-1/2 -rotate-90 text-xs font-bold uppercase tracking-[0.5em] text-primary/70 lg:block">
-          Dakar — Sénégal · Est. 2013
-        </div>
+        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 py-28 lg:px-12">
+          <div className="grid items-center gap-12 lg:grid-cols-12">
+            <div className="animate-fade-up lg:col-span-8">
+              {/* Trust badge */}
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+                  Inscriptions ouvertes — Saison 2026
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur">
+                  <MapPin size={12} className="text-primary" /> Complexe ENA · Dakar
+                </span>
+              </div>
 
-        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 py-24 lg:px-16">
-          <div className="max-w-3xl animate-fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary backdrop-blur">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-              Inscriptions ouvertes — Saison 2026
-            </span>
-            <h1 className="mt-8 font-impact text-7xl font-bold leading-[0.85] text-white md:text-[10rem]">
-              Deviens <br />
-              <span className="text-gold-gradient">légendaire.</span>
-            </h1>
-            <p className="mt-8 max-w-xl text-lg text-white/80 md:text-xl">
-              À <strong className="text-primary">Farafina Foot Academy</strong>, nous formons les futures étoiles du football sénégalais. Discipline. Technique. Mental d'acier.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-8 py-4 font-bold uppercase tracking-wide text-primary-foreground shadow-gold-lg transition hover:scale-105">
-                Inscrire mon enfant <ArrowRight size={18} className="transition group-hover:translate-x-1" />
-              </Link>
-              <Link to="/programs" className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 px-8 py-4 font-bold uppercase tracking-wide text-white backdrop-blur transition hover:border-primary hover:bg-primary/10">
-                Découvrir l'académie
-              </Link>
+              <h1 className="mt-8 font-impact text-6xl font-bold leading-[0.9] text-white md:text-8xl lg:text-[8.5rem]">
+                Le foot, <br />
+                <span className="text-gold-gradient">l'école de la vie.</span>
+              </h1>
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
+                À <strong className="font-semibold text-primary">Farafina Foot Academy</strong>,
+                nous formons des athlètes complets et des jeunes responsables.
+                Un encadrement diplômé, un suivi scolaire, un cadre sécurisé — pour que chaque
+                enfant grandisse en confiance.
+              </p>
+
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-4 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-gold-lg transition hover:scale-105"
+                >
+                  Inscrire mon enfant <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  to="/programs"
+                  className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-7 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur transition hover:border-primary hover:bg-white/10"
+                >
+                  <PlayCircle size={16} /> Découvrir l'académie
+                </Link>
+              </div>
+
+              {/* Trust pills */}
+              <div className="mt-8 flex flex-wrap gap-4 text-xs text-white/70">
+                {[
+                  { icon: ShieldCheck, t: "Coachs diplômés UEFA / CAF" },
+                  { icon: GraduationCap, t: "Suivi scolaire intégré" },
+                  { icon: HeartPulse, t: "Encadrement médical" },
+                ].map((it) => (
+                  <span key={it.t} className="inline-flex items-center gap-2">
+                    <it.icon size={14} className="text-primary" /> {it.t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Side floating card — parent reassurance */}
+            <div className="hidden lg:col-span-4 lg:block">
+              <div className="ml-auto max-w-sm rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl shadow-deep">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    {[playerImg, matchImg, drillsImg].map((img, i) => (
+                      <img key={i} src={img} alt="" className="h-9 w-9 rounded-full border-2 border-black object-cover" />
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-1 text-primary">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} size={12} fill="currentColor" />
+                    ))}
+                    <span className="ml-2 text-[11px] font-semibold text-white/80">4.9 / 5</span>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-white/85">
+                  « Mon fils a gagné en discipline, en respect et en confiance. Une vraie famille. »
+                </p>
+                <div className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-white/50">
+                  — Awa Ndoye, parent d'élève
+                </div>
+
+                <div className="mt-6 grid grid-cols-2 gap-3 border-t border-white/10 pt-5">
+                  <div>
+                    <div className="font-impact text-2xl text-primary">U10–U20</div>
+                    <div className="text-[10px] uppercase tracking-wider text-white/50">Garçons & filles</div>
+                  </div>
+                  <div>
+                    <div className="font-impact text-2xl text-primary">200+</div>
+                    <div className="text-[10px] uppercase tracking-wider text-white/50">Familles partenaires</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 md:flex">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Scroll</span>
-            <ChevronDown size={20} className="animate-bounce" />
+          <div className="absolute bottom-32 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 md:bottom-36 md:flex">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.3em]">Scroll</span>
+            <ChevronDown size={18} className="animate-bounce" />
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 border-t border-primary/30 bg-black/80 backdrop-blur">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 divide-primary/20 md:grid-cols-4 md:divide-x">
+        {/* Stats bar — refined */}
+        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/70 backdrop-blur-md">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 divide-white/10 md:grid-cols-4 md:divide-x">
             {[
-              { v: "500+", l: "Joueurs formés", icon: Users },
-              { v: "15", l: "Coachs experts", icon: ShieldCheck },
-              { v: "12", l: "Années d'excellence", icon: Award },
-              { v: "30+", l: "Talents pros", icon: Trophy },
+              { v: "500+", l: "Jeunes formés", icon: Users },
+              { v: "15", l: "Coachs diplômés", icon: ShieldCheck },
+              { v: "12 ans", l: "D'excellence", icon: Award },
+              { v: "30+", l: "Joueurs en clubs pros", icon: Trophy },
             ].map((s) => (
-              <div key={s.l} className="flex items-center gap-3 px-6 py-4 md:py-5">
-                <s.icon className="text-primary" size={22} />
+              <div key={s.l} className="flex items-center gap-3 px-6 py-5">
+                <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary/15 text-primary">
+                  <s.icon size={18} />
+                </div>
                 <div>
-                  <div className="font-impact text-2xl font-bold text-primary md:text-3xl">{s.v}</div>
-                  <div className="text-[10px] uppercase tracking-wider text-white/60 md:text-xs">{s.l}</div>
+                  <div className="font-impact text-2xl font-bold text-white md:text-3xl">{s.v}</div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/55 md:text-xs">{s.l}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+      </section>
       </section>
 
       {/* GOLD TICKER */}
