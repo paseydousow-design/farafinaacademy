@@ -115,6 +115,10 @@
   .shadow-gold-lg { box-shadow: var(--shadow-gold-lg); }
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
   .shadow-deep { box-shadow: var(--shadow-deep); }
+  .bg-pitch-radial { background: var(--gradient-pitch-radial); }
+  .text-pitch { color: var(--pitch); }
+  .bg-pitch { background-color: var(--pitch); }
+  .border-pitch { border-color: var(--pitch); }
   .text-stroke {
     -webkit-text-stroke: 2px var(--color-primary);
     color: transparent;
