@@ -56,14 +56,16 @@
   --ring: oklch(0.88 0.18 95);
 
   /* Pitch green – trust, sport, nature */
-  --pitch: oklch(0.55 0.13 155);
-  --pitch-deep: oklch(0.32 0.09 160);
-  --ink: oklch(0.13 0.015 250);
+  --pitch: oklch(0.62 0.16 150);
+  --pitch-deep: oklch(0.28 0.10 160);
+  --ink: oklch(0.10 0.03 25);
+  --ember: oklch(0.65 0.22 35); /* warm sunset orange */
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.10 0.015 250) 0%, oklch(0.20 0.04 160) 100%);
-  --gradient-gold: linear-gradient(135deg, oklch(0.92 0.18 95), oklch(0.75 0.17 70));
-  --gradient-gold-radial: radial-gradient(circle at 30% 20%, oklch(0.92 0.18 95 / 0.28), transparent 55%);
-  --gradient-pitch-radial: radial-gradient(circle at 70% 80%, oklch(0.55 0.13 155 / 0.35), transparent 55%);
+  --gradient-hero: linear-gradient(135deg, oklch(0.12 0.04 30) 0%, oklch(0.22 0.10 40) 45%, oklch(0.30 0.12 150) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.94 0.18 95), oklch(0.70 0.20 50));
+  --gradient-gold-radial: radial-gradient(circle at 30% 20%, oklch(0.92 0.18 95 / 0.40), transparent 60%);
+  --gradient-pitch-radial: radial-gradient(circle at 70% 80%, oklch(0.62 0.16 150 / 0.45), transparent 60%);
+  --gradient-ember-radial: radial-gradient(circle at 20% 80%, oklch(0.65 0.22 35 / 0.45), transparent 55%);
   --gradient-dark-fade: linear-gradient(180deg, transparent, oklch(0.08 0 0) 95%);
   --shadow-gold: 0 10px 40px -10px oklch(0.88 0.18 95 / 0.55);
   --shadow-gold-lg: 0 30px 80px -20px oklch(0.88 0.18 95 / 0.6);
