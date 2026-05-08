@@ -9,7 +9,7 @@ import teamImg from "@/assets/team-group.jpg";
 import playerImg from "@/assets/player-dribble.jpg";
 import matchImg from "@/assets/match-action.jpg";
 import drillsImg from "@/assets/training-drills.jpg";
-import { Trophy, Users, Target, ArrowRight, Quote, Star, ChevronDown, Zap, Award, Flame, ShieldCheck, Calendar, MapPin } from "lucide-react";
+import { Trophy, Users, Target, ArrowRight, Quote, Star, ChevronDown, Zap, Award, Flame, ShieldCheck, Calendar, MapPin, GraduationCap, HeartPulse, PlayCircle, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
