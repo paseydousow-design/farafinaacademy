@@ -58,9 +58,9 @@ function StadiumEntry() {
   const textY = (1 - textOpacity) * 40;
 
   return (
-    <section ref={sectionRef} className="relative" style={{ height: "300vh" }}>
+    <section ref={sectionRef} className="relative" style={{ height: "260vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
-        {/* Stadium background, revealed as we exit the tunnel */}
+        {/* Stadium reveal */}
         <div
           className="absolute inset-0"
           style={{
@@ -70,7 +70,8 @@ function StadiumEntry() {
           }}
         >
           <img src={stadiumImg} alt="Stade" width={1920} height={1080} className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-pitch-radial opacity-60" />
         </div>
 
         {/* Tunnel — zooms toward viewer */}
@@ -82,20 +83,57 @@ function StadiumEntry() {
           }}
         >
           <img src={tunnelImg} alt="Entrée dans le stade" width={1920} height={1080} className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
         </div>
 
-        {/* Final text reveal */}
+        {/* Caption that fades during tunnel approach */}
+        <div
+          className="absolute left-1/2 top-[18%] -translate-x-1/2 px-6 text-center"
+          style={{ opacity: Math.max(0, 1 - progress * 2.2) }}
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-white/80 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            L'expérience Farafina
+          </span>
+          <p className="mt-4 max-w-md font-display text-xl text-white/85 md:text-2xl">
+            Bien plus qu'une académie — un environnement complet pour grandir.
+          </p>
+        </div>
+
+        {/* Final reveal — value proposition for parents */}
         <div
           className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center"
           style={{ opacity: textOpacity, transform: `translateY(${textY}px)` }}
         >
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Bienvenue dans l'arène</span>
-          <h2 className="mt-4 font-display text-5xl font-bold text-white md:text-7xl">
-            Le terrain <span className="text-primary">t'attend</span>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.4em] text-primary">
+            Bienvenue à l'Académie
+          </span>
+          <h2 className="mt-5 max-w-4xl font-impact text-5xl font-bold leading-[0.95] text-white md:text-7xl">
+            Là où les <span className="text-gold-gradient">rêves</span> rencontrent <br className="hidden md:block" />
+            la <span className="text-gold-gradient">méthode</span>.
           </h2>
-          <p className="mt-4 max-w-xl text-white/80">
-            Chaque grand joueur a un jour franchi ce tunnel. Et toi, es-tu prêt à entrer ?
+          <p className="mt-6 max-w-2xl text-base text-white/75 md:text-lg">
+            Encadrement diplômé, suivi scolaire, accompagnement médical et nutritionnel.
+            Confiez-nous l'avenir sportif de votre enfant en toute sérénité.
           </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold uppercase tracking-wider text-white/85">
+            {[
+              "Coachs diplômés",
+              "Suivi scolaire",
+              "Cadre sécurisé",
+              "Accompagnement médical",
+            ].map((tag) => (
+              <span key={tag} className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-white/5 px-4 py-2 backdrop-blur">
+                <CheckCircle2 size={14} className="text-primary" /> {tag}
+              </span>
+            ))}
+          </div>
+          <Link
+            to="/contact"
+            className="mt-10 inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-gold-lg transition hover:scale-105"
+          >
+            Réserver une visite <ArrowRight size={16} />
+          </Link>
         </div>
 
         {/* Scroll hint */}
