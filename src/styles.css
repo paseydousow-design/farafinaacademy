@@ -55,9 +55,15 @@
   --input: oklch(0.92 0.01 95);
   --ring: oklch(0.88 0.18 95);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.08 0 0) 0%, oklch(0.18 0.04 85) 100%);
+  /* Pitch green – trust, sport, nature */
+  --pitch: oklch(0.55 0.13 155);
+  --pitch-deep: oklch(0.32 0.09 160);
+  --ink: oklch(0.13 0.015 250);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.10 0.015 250) 0%, oklch(0.20 0.04 160) 100%);
   --gradient-gold: linear-gradient(135deg, oklch(0.92 0.18 95), oklch(0.75 0.17 70));
-  --gradient-gold-radial: radial-gradient(circle at 30% 20%, oklch(0.92 0.18 95 / 0.35), transparent 60%);
+  --gradient-gold-radial: radial-gradient(circle at 30% 20%, oklch(0.92 0.18 95 / 0.28), transparent 55%);
+  --gradient-pitch-radial: radial-gradient(circle at 70% 80%, oklch(0.55 0.13 155 / 0.35), transparent 55%);
   --gradient-dark-fade: linear-gradient(180deg, transparent, oklch(0.08 0 0) 95%);
   --shadow-gold: 0 10px 40px -10px oklch(0.88 0.18 95 / 0.55);
   --shadow-gold-lg: 0 30px 80px -20px oklch(0.88 0.18 95 / 0.6);
