@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "farafinafootacademy" },
+      { name: "description", content: "farafina foot academy est une academie pour jeune de moins de 20ans avec qui entraine les jeunes pour qu'il soit meilleur dans le domaine du football" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "farafinafootacademy" },
+      { property: "og:description", content: "farafina foot academy est une academie pour jeune de moins de 20ans avec qui entraine les jeunes pour qu'il soit meilleur dans le domaine du football" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "farafinafootacademy" },
+      { name: "twitter:description", content: "farafina foot academy est une academie pour jeune de moins de 20ans avec qui entraine les jeunes pour qu'il soit meilleur dans le domaine du football" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a9a1d8ca-f867-43a0-9b35-25da1a6a3aae" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a9a1d8ca-f867-43a0-9b35-25da1a6a3aae" },
     ],
     links: [
       {
