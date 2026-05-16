@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { uploadToSiteMedia, pathFromPublicUrl } from "@/lib/upload";
 import { Plus, Trash2, Loader2, Upload, Eye, EyeOff } from "lucide-react";
 
-export const Route = createFileRoute("/_admin/news")({ component: NewsAdmin });
+export const Route = createFileRoute("/admin/news")({ component: NewsAdmin });
 
 type Post = { id: string; title: string; excerpt: string | null; content: string | null; image_url: string | null; published: boolean; published_at: string | null };
 

@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { uploadToSiteMedia, pathFromPublicUrl } from "@/lib/upload";
 import { Plus, Trash2, Loader2, Upload } from "lucide-react";
 
-export const Route = createFileRoute("/_admin/staff")({ component: StaffAdmin });
+export const Route = createFileRoute("/admin/staff")({ component: StaffAdmin });
 
 type Staff = { id: string; name: string; role: string; bio: string | null; photo_url: string | null; order_index: number; is_active: boolean };
 

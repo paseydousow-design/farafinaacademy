@@ -3,7 +3,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { useEffect } from "react";
 import { Loader2, Image, Users, Newspaper, Inbox, LogOut, Home } from "lucide-react";
 
-export const Route = createFileRoute("/_admin")({
+export const Route = createFileRoute("/admin")({
   head: () => ({ meta: [{ title: "Admin — Farafina Foot" }] }),
   component: AdminLayout,
 });

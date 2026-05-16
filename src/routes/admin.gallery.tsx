@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { uploadToSiteMedia, pathFromPublicUrl } from "@/lib/upload";
 import { Upload, Trash2, Loader2 } from "lucide-react";
 
-export const Route = createFileRoute("/_admin/gallery")({ component: GalleryAdmin });
+export const Route = createFileRoute("/admin/gallery")({ component: GalleryAdmin });
 
 type Photo = { id: string; photo_url: string; caption: string | null; category: string | null; order_index: number };
 

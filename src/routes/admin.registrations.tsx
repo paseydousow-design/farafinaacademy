@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Mail, Phone, Trash2, CheckCircle2 } from "lucide-react";
 
-export const Route = createFileRoute("/_admin/registrations")({ component: RegsAdmin });
+export const Route = createFileRoute("/admin/registrations")({ component: RegsAdmin });
 
 type Reg = {
   id: string; child_name: string; child_birthdate: string | null; category: string | null;
