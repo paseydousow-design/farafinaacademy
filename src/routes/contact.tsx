@@ -119,11 +119,11 @@ function ContactPage() {
                 <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground"><Phone size={20} /></div>
                 <div>
                   <div className="font-display font-bold uppercase">Téléphone</div>
-                  <a href="tel:+221770000000" className="text-sm text-muted-foreground hover:text-primary">+221 77 000 00 00</a>
+                  <a href="tel:+221338159917" className="text-sm text-muted-foreground hover:text-primary">+221 33 815 99 17</a>
                 </div>
               </div>
             </div>
-            <a href="https://wa.me/221770000000" target="_blank" rel="noopener noreferrer" className="block rounded-2xl border border-border bg-card p-6 transition hover:border-primary hover:shadow-elegant">
+            <a href="https://wa.me/221768317120" target="_blank" rel="noopener noreferrer" className="block rounded-2xl border border-border bg-card p-6 transition hover:border-primary hover:shadow-elegant">
               <div className="flex items-start gap-4">
                 <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-pitch text-secondary-foreground"><MessageCircle size={20} /></div>
                 <div>

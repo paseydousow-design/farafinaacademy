@@ -451,7 +451,7 @@ function Index() {
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-8 py-4 font-bold uppercase tracking-wide text-primary-foreground shadow-gold-lg transition hover:scale-105">
                 Candidater maintenant <ArrowRight size={18} className="transition group-hover:translate-x-1" />
               </Link>
-              <a href="https://wa.me/221770000000" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 px-8 py-4 font-bold uppercase tracking-wide text-white backdrop-blur transition hover:border-primary">
+              <a href="https://wa.me/221768317120" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 px-8 py-4 font-bold uppercase tracking-wide text-white backdrop-blur transition hover:border-primary">
                 WhatsApp direct
               </a>
             </div>
