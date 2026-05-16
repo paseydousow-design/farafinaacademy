@@ -29,6 +29,9 @@ function LoginPage() {
     setError(""); setBusy(true);
     try {
       if (mode === "signup") {
+        if (!email.endsWith("@farafinaacademy.com")) {
+          throw new Error("Seuls les emails @farafinaacademy.com sont autorisés");
+        }
         const { error } = await supabase.auth.signUp({
           email, password,
           options: { emailRedirectTo: window.location.origin + "/admin", data: { full_name: fullName } },
@@ -69,6 +72,7 @@ function LoginPage() {
               <label className="text-sm font-bold">Email</label>
               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" required maxLength={255}
                 className="mt-1 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              {mode === "signup" && <p className="mt-1 text-xs text-primary">Utilisez votre email @farafinaacademy.com</p>}
             </div>
             <div>
               <label className="text-sm font-bold">Mot de passe</label>
