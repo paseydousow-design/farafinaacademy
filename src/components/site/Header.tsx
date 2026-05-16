@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Shield } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
+import logoFarafina from "@/assets/logo_farafina.png";
 
 const links = [
   { to: "/", label: "Accueil" },
@@ -19,7 +20,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/40 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2 text-secondary-foreground">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-primary font-display text-lg font-bold text-primary-foreground">F</span>
+          <img src={logoFarafina} alt="Farafina Foot Academy Logo" className="h-9 w-9 rounded-md object-cover" />
           <span className="font-display text-lg font-bold tracking-wide">FARAFINA <span className="text-primary">FOOT</span></span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">

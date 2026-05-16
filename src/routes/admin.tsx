@@ -2,6 +2,7 @@ import { createFileRoute, Link, Outlet, useNavigate } from "@tanstack/react-rout
 import { useAuth } from "@/hooks/use-auth";
 import { useEffect } from "react";
 import { Loader2, Image, Users, Newspaper, Inbox, LogOut, Home } from "lucide-react";
+import logoFarafina from "@/assets/logo_farafina.png";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({ meta: [{ title: "Admin — Farafina Foot" }] }),
@@ -49,8 +50,9 @@ function AdminLayout() {
     <div className="grid min-h-screen md:grid-cols-[260px_1fr]">
       <aside className="border-r border-border bg-secondary text-secondary-foreground">
         <div className="border-b border-border/30 p-6">
-          <Link to="/" className="font-display text-lg font-bold tracking-wide">
-            FARAFINA <span className="text-primary">FOOT</span>
+          <Link to="/" className="flex items-center gap-2">
+            <img src={logoFarafina} alt="Farafina Foot Academy Logo" className="h-8 w-8 rounded object-cover" />
+            <span className="font-display text-lg font-bold tracking-wide">FARAFINA <span className="text-primary">FOOT</span></span>
           </Link>
           <div className="mt-1 text-xs uppercase tracking-widest text-primary">Admin</div>
         </div>
