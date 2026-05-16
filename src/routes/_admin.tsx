@@ -37,13 +37,13 @@ function AdminLayout() {
     );
   }
 
-  const items = [
+  const items: Array<{ to: "/admin" | "/admin/staff" | "/admin/gallery" | "/admin/news" | "/admin/registrations"; label: string; icon: typeof Home; exact?: boolean }> = [
     { to: "/admin", label: "Tableau de bord", icon: Home, exact: true },
     { to: "/admin/staff", label: "Coachs / Staff", icon: Users },
     { to: "/admin/gallery", label: "Galerie", icon: Image },
     { to: "/admin/news", label: "Actualités", icon: Newspaper },
     { to: "/admin/registrations", label: "Inscriptions", icon: Inbox },
-  ] as const;
+  ];
 
   return (
     <div className="grid min-h-screen md:grid-cols-[260px_1fr]">
