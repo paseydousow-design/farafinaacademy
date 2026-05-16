@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 const links = [
   { to: "/", label: "Accueil" },
@@ -13,6 +14,7 @@ const links = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { isAdmin } = useAuth();
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
@@ -32,7 +34,12 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <Link to="/contact" className="ml-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-gold transition hover:scale-105">
+          {isAdmin && (
+            <Link to="/admin" className="ml-1 inline-flex items-center gap-1 rounded-md border border-primary/40 px-3 py-2 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/10">
+              <Shield size={12} /> Admin
+            </Link>
+          )}
+          <Link to="/inscription" className="ml-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-gold transition hover:scale-105">
             S'inscrire
           </Link>
         </nav>
@@ -52,7 +59,12 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <Link to="/contact" onClick={() => setOpen(false)} className="mt-2 block rounded-md bg-primary px-4 py-2 text-center text-sm font-bold text-primary-foreground">
+          {isAdmin && (
+            <Link to="/admin" onClick={() => setOpen(false)} className="mt-2 block rounded-md border border-primary/40 px-4 py-2 text-center text-sm font-bold text-primary">
+              Espace admin
+            </Link>
+          )}
+          <Link to="/inscription" onClick={() => setOpen(false)} className="mt-2 block rounded-md bg-primary px-4 py-2 text-center text-sm font-bold text-primary-foreground">
             S'inscrire
           </Link>
         </nav>
