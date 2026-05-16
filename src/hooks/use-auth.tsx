@@ -24,23 +24,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const checkAdmin = (user: User | undefined) => {
+      if (!user?.email) {
+        setIsAdmin(false);
+        return;
+      }
+      setIsAdmin(user.email.endsWith("@farafinaacademy.com"));
+    };
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, s) => {
       setSession(s);
-      if (s?.user) {
-        setTimeout(() => {
-          supabase.from("user_roles").select("role").eq("user_id", s.user.id).eq("role", "admin").maybeSingle()
-            .then(({ data }) => setIsAdmin(!!data));
-        }, 0);
-      } else {
-        setIsAdmin(false);
-      }
+      checkAdmin(s?.user);
     });
     supabase.auth.getSession().then(({ data: { session: s } }) => {
       setSession(s);
-      if (s?.user) {
-        supabase.from("user_roles").select("role").eq("user_id", s.user.id).eq("role", "admin").maybeSingle()
-          .then(({ data }) => setIsAdmin(!!data));
-      }
+      checkAdmin(s?.user);
       setLoading(false);
     });
     return () => subscription.unsubscribe();
